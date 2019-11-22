@@ -40,7 +40,7 @@ app.delete("/log", (req, res) => {
 
 app.get("/healthcheck", (req, res) => {
   res.status(200).json({
-    "message":"Im healthy!"
+    "message": "Im healthy!"
   })
 })
 
@@ -48,6 +48,14 @@ app.get("/*", (req, res) => {
   textLogger(req.path)("route not found")
   res.status(404).json({
     "message": "not found."
+  })
+})
+
+// notification receiver
+app.post('/receive', (req, res) => {
+  console.log(JSON.stringify(req.body))
+  res.status(200).json({
+    "message": "ok, received"
   })
 })
 

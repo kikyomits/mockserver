@@ -98,7 +98,7 @@ const replyHandler = (path, res) => {
     let logMessage = message
     if (!logMessage)
       logMessage = JSON.stringify(jsonResponse, null, 2)
-      logger(path, logMessage)
+    logger(path, logMessage)
     res.status(statusCode).json(jsonResponse)
   }
 }
@@ -138,7 +138,7 @@ const createRouter = (rootPath) => {
     const reply = replyHandler('GET /funcs', res)
     reply(200, inMemFunc, 'return inMemFunc')
   })
-  
+
   // create function  
   router.post('/funcs', funcParamsMiddleware, (req, res) => {
     const reply = replyHandler('POST /funcs', res)
@@ -149,13 +149,13 @@ const createRouter = (rootPath) => {
     else
       reply(200, updateFunction(req.funcName, req.funcBody, 'added'))
   })
-  
+
   // update function
   router.put('/funcs', funcParamsMiddleware, (req, res) => {
     const reply = replyHandler('PUT /funcs', res)
     reply(200, updateFunction(req.funcName, req.funcBody, 'updated'))
   })
-  
+
   // edit function
   router.get('/funcs/:funcName*', funcNameMiddleware, (req, res) => {
     const func = inMemFunc[req.funcName]
@@ -175,14 +175,14 @@ const createRouter = (rootPath) => {
     reply(200, {
       'message': `Function ${funcName} has been deleted`
     })
-  
+
   })
-  
+
   // ===========================================================================
   // execute function
 
   router.get('/execute/:funcName*', funcNameMiddleware, executeFunction("GET"))
-  
+
   router.post('/execute/:funcName*', funcNameMiddleware, executeFunction("POST"))
 
   router.put('/execute/:funcName*', funcNameMiddleware, executeFunction("PUT"))
