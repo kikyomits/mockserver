@@ -59,5 +59,5 @@ app.post('/receive', (req, res) => {
   })
 })
 
-let port = 3000
+let port = 80
 app.listen(port, () => console.log(`App is listening on port ${port}!`))
