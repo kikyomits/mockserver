@@ -44,12 +44,12 @@ app.get("/healthcheck", (req, res) => {
   })
 })
 
-// app.get("/*", (req, res) => {
-//   textLogger(req.path)("route not found")
-//   res.status(404).json({
-//     "message": "not found."
-//   })
-// })
+app.get("/*", (req, res) => {
+  textLogger(req.path)("route not found")
+  res.status(404).json({
+    "message": "not found."
+  })
+})
 
 // notification receiver
 app.post('/receive', (req, res) => {
