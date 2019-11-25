@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 app.use("/lambda", createRouter("lambda"))
 
 app.get("/log", (req, res) => {
-  fs.readFile("log/log.tmp", (err, data) => {
+  fs.readFile("log/notification.log", (err, data) => {
     // no way to log error
     res.render(`log`, { "log": data })
   })
@@ -53,7 +53,20 @@ app.get("/*", (req, res) => {
 
 // notification receiver
 app.post('/receive', (req, res) => {
+  console.log("receive")
   console.log(JSON.stringify(req.body))
+  const logFile = 'log/notification.log'
+  try {
+    fs.statSync(logFile);
+    console.log('it exists');
+    fs.appendFileSync(logFile, "\n")
+    fs.appendFileSync(logFile, JSON.stringify(req.body))
+  }
+  catch (err) {
+    console.log('it does not exist');
+    fs.writeFileSync(logFile, JSON.stringify(req.body))
+  }
+
   res.status(200).json({
     "message": "ok, received"
   })
