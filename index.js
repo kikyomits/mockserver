@@ -7,6 +7,7 @@ const textLogger = require("./utils").textLogger
 const { createRouter } = require("./routes/lambda")
 const app = express()
 
+const logFile = "log/notification.log"
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -22,14 +23,14 @@ app.get("/", (req, res) => {
 app.use("/lambda", createRouter("lambda"))
 
 app.get("/log", (req, res) => {
-  fs.readFile("log/notification.log", (err, data) => {
+  fs.readFile(logFile, (err, data) => {
     // no way to log error
     res.render(`log`, { "log": data })
   })
 })
 
 app.delete("/log", (req, res) => {
-  fs.writeFile("log/log.tmp", "", (err, data) => {
+  fs.writeFile(logFile, "", (err, data) => {
     if (err) {
       console.log("encounter error", err)
       res.status(500).send("error")
@@ -55,7 +56,6 @@ app.get("/*", (req, res) => {
 app.post('/receive', (req, res) => {
   console.log("receive")
   console.log(JSON.stringify(req.body))
-  const logFile = 'log/notification.log'
   try {
     fs.statSync(logFile);
     console.log('it exists');
