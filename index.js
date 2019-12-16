@@ -74,16 +74,16 @@ app.post('/receive', (req, res) => {
   var json = JSON.parse(reqBody)
   // Storing device notification 
   if(json.event.type=='device'){
-    var deviceLogFile = deviceLogDirectory + json.event.id + "/" + logFile;
+    var deviceLogFile = deviceLogDirectory + json.event.deviceId + "/" + logFile;
     try{
       fs.statSync(deviceLogFile);
-      console.log(json.event.id + ' log exists');
+      console.log(json.event.deviceId + ' log exists');
       fs.appendFileSync(deviceLogFile, "\n")
       fs.appendFileSync(deviceLogFile, JSON.stringify(req.body))
     }
     catch (err) {
-      console.log(json.event.id + ' log does not exist');
-      fs.mkdirsSync(deviceLogDirectory + json.event.id);
+      console.log(json.event.deviceId + ' log does not exist');
+      fs.mkdirsSync(deviceLogDirectory + json.event.deviceId);
       fs.writeFileSync(deviceLogFile, JSON.stringify(req.body))
     }    
   }
