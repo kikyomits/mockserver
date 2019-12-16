@@ -1,5 +1,20 @@
-2019-11-22T02:44:37.238Z - initial: {
+[33m[nodemon] 1.19.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node index.js`[39m
+2019-12-16T07:26:37.597Z - initial: {
+  "message": "Function echo has been added."
+}
+2019-12-16T07:26:37.598Z - initial: {
   "message": "Function error500 has been added."
 }
-App is listening on port 3000!
-{"aaa":"bbb"}
+App is listening on port 80!
+receive
+{"createdAt":"2019-12-13T15:44:41.321317+09:00","event":{"type":"device","id":"6c6eece8-9de1-4898-924f-45a9c2420428","createdAt":"2019-12-13T15:44:41.321317+09:00","data":{"airFlowLevel":"demoValue","message":"SmartMock cannot use current States"},"previousData":{"airFlowLevel":""},"deviceType":"homeAirConditioner","deviceId":"d3d31ea7-d809-458b-8edd-4c4e4c0e7b6b","deviceEventType":"statuschanged"},"id":"389f6f4e-bab3-4ced-824f-67bf5a59cd3d","receiver":{"group":"demogroup","id":"demouser"},"subscriptionId":"864fe1a8-88a8-4e13-a9b2-3fc47ef7df20"}
+6c6eece8-9de1-4898-924f-45a9c2420428 log does not exist
+receive
+{"createdAt":"2019-12-13T15:45:50.570023+09:00","event":{"type":"message","id":"57fe91cf-4bb8-49d7-8079-093877db8934","createdAt":"2019-12-13T15:45:50.570023+09:00","data":{"type":"SeasonsGreeting","occasion":"Christmas!!"},"previousData":null,"messageEventType":"weather"},"id":"dc9bd306-1fa4-4f41-891a-138c248d1c27","receiver":{"group":"demogroup","id":"demouser"},"subscriptionId":"5b4fa376-453d-4ae4-8142-0d7fc52ca59a"}
+the adhoc message log it does not exist
+receive
+{"createdAt":"2019-12-13T15:44:41.321317+09:00","event":{"type":"device","id":"116eece8-9de1-4898-924f-45a9c2420428","createdAt":"2019-12-13T15:44:41.321317+09:00","data":{"airFlowLevel":"demoValue","message":"SmartMock cannot use current States"},"previousData":{"airFlowLevel":""},"deviceType":"homeAirConditioner","deviceId":"d3d31ea7-d809-458b-8edd-4c4e4c0e7b6b","deviceEventType":"statuschanged"},"id":"389f6f4e-bab3-4ced-824f-67bf5a59cd3d","receiver":{"group":"demogroup","id":"demouser"},"subscriptionId":"864fe1a8-88a8-4e13-a9b2-3fc47ef7df20"}
+116eece8-9de1-4898-924f-45a9c2420428 log does not exist
